@@ -1,53 +1,53 @@
 <script setup>
-import { storeToRefs } from "pinia";
+import { useTodosStore } from "@/store/todos";
 import { ref } from "vue";
 
-const message = ref("");
-// function addItem() {
-//   (label) => {
-//     state.useTodosStore.push(...label);
-//     console.log(label);
-//   };
-// }
+const store = useTodosStore();
+const label = ref("");
+console.log(label);
 
-function addItem(item) {
-  if (item.length === 0) {
-    return;
-  }
-  store.todos(item)
-  todo.value = ''
-  console.log('trigger action in store to add item')
-  console.log(message.value)
+function addItem() {
+  store.addItem({ label: label.value });
+  label.value = "";
 }
 </script>
 
 <template>
-  <input v-model="message" placeholder="edit me" />
-  <button class="add_item" @click="addItem(todo)">Add item</button>
+  <p>New ToDo</p>
+  <input v-model="label" @keyup.enter="addItem" placeholder="edit me" />
+  <button class="add_item" :disabled="label === ''" @click="addItem">
+    Add ToDo
+  </button>
 </template>
 
 <style>
 input {
-  border: 3px solid lightblue;
+  border: 1px solid #bea3d6;
   width: 400px;
   padding: 20px;
   font-size: 1.1em;
+  background-color: transparent;
+  border-radius: 7px;
+  margin-top: 10px;
+  color: #ffff;
 }
-
+p {
+  color: #ffff;
+}
 input:active,
 input:focus {
-  border: 3px solid lightblue;
+  outline: none;
 }
 
 .add_item {
   margin-top: 20px;
-  border: 3px solid lightblue;
+  border-radius: 7px;
+  border: none;
   width: 400px;
   padding: 10px;
-  background-color: rgb(202, 207, 211);
-  color: white;
-  font-size: 1.5em;
-  text-transform: uppercase;
+  background-color: #bea3d6;
+  color: black;
+  font-size: 1.2em;
   font-weight: 500;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   cursor: pointer;
@@ -56,5 +56,10 @@ input:focus {
 button:hover {
   color: rgb(65, 65, 65);
   background-color: white;
+}
+
+button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 </style>

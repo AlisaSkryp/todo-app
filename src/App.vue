@@ -2,11 +2,11 @@
 import DoneList from "./components/DoneList.vue";
 import ItemList from "./components/ItemList.vue";
 import TodoApp from "./components/TodoApp.vue";
-
 </script>
 
 <template>
   <main>
+    <div v-if="false">Hello</div>
     <div class="wrapper">
       <TodoApp />
       <ItemList />
@@ -19,12 +19,13 @@ import TodoApp from "./components/TodoApp.vue";
 main {
   width: 100%;
   height: 100%;
-  /* background-color: black; */
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: rgb(59, 56, 56);
+  padding: 48px;
 }
 </style>

@@ -1,27 +1,42 @@
 <script setup>
-import { useTodosStore } from '@/store/todos'
-import Item from '@/components/Item.vue'
+import { useTodosStore } from "@/store/todos";
+import Item from "@/components/Item.vue";
 
-const store = useTodosStore()
-
-const { items } = store;
-
-</script> 
+const store = useTodosStore();
+</script>
 
 <template>
-  <ul class="itemlist">
-    <Item v-for="(item, idx) in items" :key="'item' + idx" :label="item.label" />
-  </ul>
-  <button class="clear">Clear</button>
+  <div class="todo-list">
+    <p>ToDo List</p>
+    <ul class="itemlist">
+      <Item
+        v-for="(item, idx) in store.getUndoneItems"
+        :key="'item' + idx"
+        v-bind="item"
+      />
+    </ul>
+  </div>
 </template>
 
 <style scoped>
+.todo-list {
+  color: #ffff;
+
+  margin-top: 24px;
+}
+p {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #ffff;
+}
 .itemlist {
-  margin-top: 40px;
   width: 100%;
   list-style-type: none;
   padding: 0;
-  border: 3px solid lightblue;
+  border: 1px solid #bea3d6;
+  border-radius: 7px;
+  padding: 10px 20px;
+  margin-top: 10px;
 }
 
 .mes {
