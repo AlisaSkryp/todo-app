@@ -28,4 +28,5 @@ main {
   background-color: rgb(59, 56, 56);
   padding: 48px;
 }
+
 </style>

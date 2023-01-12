@@ -67,7 +67,7 @@ li {
   margin-top: 20px;
   border-radius: 7px;
   border: none;
-  width: 400px;
+  width: 100%;
   padding: 10px;
   background-color: #bea3d6;
   color: black;

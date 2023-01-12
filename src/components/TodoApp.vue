@@ -23,7 +23,7 @@ function addItem() {
 <style>
 input {
   border: 1px solid #bea3d6;
-  width: 400px;
+  width: 100%;
   padding: 20px;
   font-size: 1.1em;
   background-color: transparent;
@@ -43,7 +43,7 @@ input:focus {
   margin-top: 20px;
   border-radius: 7px;
   border: none;
-  width: 400px;
+  width: 100%;
   padding: 10px;
   background-color: #bea3d6;
   color: black;
